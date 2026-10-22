@@ -1,0 +1,110 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #eef3f9;
+  color: #1f2937;
+}
+
+.app { max-width: 1000px; margin: 0 auto; padding: 16px; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.header h1 { margin: 0; font-size: 1.5rem; }
+
+/* Mặc định (nhỏ hơn 768px): xếp dọc */
+.layout { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+/* Từ 768px: 2 cột */
+@media (min-width: 768px) {
+  .layout { grid-template-columns: 240px 1fr; }
+}
+
+.city-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.city-btn {
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 1rem;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.city-btn:hover { background: #e0ecff; }
+.city-btn.active {
+  background: #2563eb;
+  color: #fff;
+  font-weight: bold;
+  border-color: #1d4ed8;
+}
+
+.unit-toggle { display: flex; }
+.unit-btn {
+  padding: 8px 16px;
+  border: 1px solid #2563eb;
+  background: #fff;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.unit-btn:first-child { border-radius: 8px 0 0 8px; }
+.unit-btn:last-child { border-radius: 0 8px 8px 0; border-left: none; }
+.unit-btn.active { background: #2563eb; color: #fff; }
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.card h2, .card h3 { margin-top: 0; }
+
+.current-main { display: flex; align-items: center; gap: 16px; }
+.current-icon { font-size: 4rem; }
+.current-temp { font-size: 3rem; font-weight: bold; }
+.current-desc { font-size: 1.2rem; margin: 4px 0 12px; }
+.current-details p { margin: 4px 0; }
+.update-time { color: #6b7280; font-size: 0.85rem; margin-bottom: 0; }
+
+.forecast-list { list-style: none; margin: 0; padding: 0; }
+.forecast-item {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+.forecast-item:last-child { border-bottom: none; }
+.forecast-day { display: flex; flex-direction: column; }
+.forecast-day small { color: #6b7280; }
+.forecast-icon { font-size: 1.6rem; text-align: center; }
+.forecast-temp { text-align: right; }
+.max { color: #dc2626; font-weight: bold; }
+.min { color: #2563eb; }
+
+.status {
+  background: #fff;
+  border-radius: 14px;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.status.error { color: #b91c1c; }
+.retry-btn {
+  padding: 10px 24px;
+  font-size: 1rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.retry-btn:hover { background: #1d4ed8; }
